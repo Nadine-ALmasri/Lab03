@@ -14,20 +14,22 @@ namespace Lab03
     public class Program
     {
 
-        static void ProductOfThreeNumbers()
+        public static int ProductOfThreeNumbers()
         {
             Console.WriteLine("Please Enter Three Numbers seperated by space : ");
+
             string given = Console.ReadLine();
+        
             string[] numbers = given.Split(' ');
 
+                int result = 1;
             if (numbers.Length < 3)
             {
                 Console.WriteLine("Invalid Input Please Try Again");
-
+                return 0;
             }
             else if (numbers.Length >= 3)
             {
-                int result = 1;
                 for (int i = 0; i < 3; i++)
                 {
                     if (int.TryParse(numbers[i], out int number))
@@ -40,9 +42,16 @@ namespace Lab03
 
                 }
                 Console.WriteLine($"If We Multiplay The Three Numbers We Get: " + result);
+                
             }
+            return result;
+           
         }
-        static void RandomAverage()
+
+
+
+
+     public   static decimal RandomAverage()
         {
             Console.WriteLine("Please Enter a Number between 2-10");
             string num = Console.ReadLine();
@@ -54,14 +63,14 @@ namespace Lab03
                 num = Console.ReadLine();
             }
 
-            double sum = 0;
+           decimal sum = 0;
             for (int i = 1; i <= count; i++)
             {
                 Console.WriteLine($"Enter {i} of {count} should be non-negative number:");
                 string TheNumber = Console.ReadLine();
 
-                double number;
-                while (!double.TryParse(TheNumber, out number) || number < 0)
+              decimal number;
+                while (!decimal.TryParse(TheNumber, out number) || number < 0)
                 {
                     Console.WriteLine("Invalid Input. Please enter a valid non-negative number:");
                     TheNumber = Console.ReadLine();
@@ -70,8 +79,10 @@ namespace Lab03
                 sum += number;
             }
 
-            double avg = sum / count;
+            decimal avg = sum / count;
             Console.WriteLine($"The Average of the Inputs is: {avg}");
+            return avg;
+        
         }
         static void Stars()
         {
@@ -94,7 +105,7 @@ namespace Lab03
             Console.WriteLine("    ***");
             Console.WriteLine("     *");
         }
-        static int CountForFrequent(int[] array)
+       public static int CountForFrequent(int[] array)
         {
             int mostFrequentNumber = array[0];
             int maxCount = 1;
@@ -122,7 +133,7 @@ namespace Lab03
             return mostFrequentNumber;
         
     }
-        static int maximumValueInTheArray(int[] array2)
+        public static int maximumValueInTheArray(int[] array2)
         {
             int maximumValue = array2[0];
            
@@ -171,7 +182,7 @@ namespace Lab03
             File.WriteAllText(path, deletedWord);
             Console.WriteLine(dataFromFile);
         }
-        static void GetSentanceLength()
+       public static string [] GetSentanceLength()
         {
             Console.WriteLine("Please enter a sentence:");
             string sentence = Console.ReadLine();
@@ -196,6 +207,7 @@ namespace Lab03
                 }
 
             }
+            return result;  
         }
         static void Main(string[] args)
         {
